@@ -1,0 +1,25 @@
+--
+--  Copyright (C) 2026, Vadim Godunko <vgodunko@gmail.com>
+--
+--  SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+--
+
+with "config/espidfada_driver_gpio_config.gpr";
+
+with "espidfada.gpr";
+
+library project ESPIDFAda_Driver_GPIO is
+
+   for Languages use ESPIDFAda.Crate_Languages_Ada_C;
+   for Library_Name use "espidfada_driver_gpio";
+   for Library_Dir use ESPIDFAda.Crate_Library_Dir;
+   for Object_Dir use ESPIDFAda.Crate_Object_Dir;
+   for Source_Dirs use ("source");
+
+   package Compiler extends ESPIDFAda.Compiler is
+      for Switches ("Ada")
+        use ESPIDFAda_Driver_GPIO_Config.Ada_Compiler_Switches
+        & ESPIDFAda.Compiler_Switches_Ada;
+   end Compiler;
+
+end ESPIDFAda_Driver_GPIO;

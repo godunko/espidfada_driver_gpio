@@ -1,0 +1,21 @@
+name = "espidfada_driver_gpio"
+version = "0.1.0-dev"
+website = "https://github.com/godunko/espidfada_driver_gpio"
+description = "ESP-IDF/Ada: GPIO bindings"
+long-description = """
+Ada bindings for the ESP-IDF GPIO component (`esp_driver_gpio`).
+"""
+
+authors = ["Vadim Godunko"]
+maintainers = ["Vadim Godunko <vgodunko@gmail.com>"]
+maintainers-logins = ["godunko"]
+licenses = "Apache-2.0 WITH LLVM-exception"
+tags = ["a0b", "embedded", "esp", "esp32", "espidf", "gpio"]
+
+[configuration]
+generate_ada = false
+generate_c = false
+generate_gpr = true
+
+[[depends-on]]
+espidfada = "*"
