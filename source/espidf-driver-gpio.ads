@@ -85,6 +85,18 @@ package ESPIDF.Driver.GPIO is
      Convention    => C,
      External_Name => "__ada_SET_gpio_config_t_pull_up_en";
 
+   --------------
+   -- GPIO API --
+   --------------
+
+   function gpio_config (pGPIOConfig : in gpio_config_t) return esp_err_t
+   with
+     Import,
+     Convention    => C,
+     External_Name => "gpio_config";
+
+   procedure gpio_config (pGPIOConfig : in gpio_config_t);
+
 private
 
    sizeof_gpio_config_t : constant int
