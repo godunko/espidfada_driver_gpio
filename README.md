@@ -1,3 +1,3 @@
 # ESP-IDF/Ada
 
-## SPI bindings
+## GPIO bindings
