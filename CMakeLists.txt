@@ -1,1 +1,1 @@
-idf_component_register(REQUIRES esp_driver_gpio)
+idf_component_register(SRCS source/espidfada_driver_gpio.c REQUIRES esp_driver_gpio)
