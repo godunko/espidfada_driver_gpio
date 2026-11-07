@@ -17,4 +17,13 @@ package body ESPIDF.Driver.GPIO is
       ESPIDF.Ada_ESP_Check_Error (gpio_config (pGPIOConfig));
    end gpio_config;
 
+   --------------------
+   -- gpio_set_level --
+   --------------------
+
+   procedure gpio_set_level (gpio_num : gpio_num_t; level : uint32_t) is
+   begin
+      ESPIDF.Ada_ESP_Check_Error (gpio_set_level (gpio_num, level));
+   end gpio_set_level;
+
 end ESPIDF.Driver.GPIO;

@@ -97,6 +97,14 @@ package ESPIDF.Driver.GPIO is
 
    procedure gpio_config (pGPIOConfig : in gpio_config_t);
 
+   function gpio_set_level (gpio_num : gpio_num_t; level : uint32_t) return esp_err_t
+   with
+     Import,
+     Convention    => C,
+     External_Name => "gpio_set_level";
+
+   procedure gpio_set_level (gpio_num : gpio_num_t; level : uint32_t);
+
 private
 
    sizeof_gpio_config_t : constant int
