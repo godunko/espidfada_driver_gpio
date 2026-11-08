@@ -116,6 +116,11 @@ package ESPIDF.Driver.GPIO is
    procedure gpio_isr_handler_add
      (gpio_num : gpio_num_t; isr_handler : gpio_isr_t; args : System.Address);
 
+   function gpio_intr_enable (gpio_num : gpio_num_t) return esp_err_t
+   with Import, Convention => C, External_Name => "gpio_intr_enable";
+
+   procedure gpio_intr_enable (gpio_num : gpio_num_t);
+
 private
 
    sizeof_gpio_config_t : constant int
