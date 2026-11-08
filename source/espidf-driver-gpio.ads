@@ -4,6 +4,8 @@
 --  SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 --
 
+with System;
+
 package ESPIDF.Driver.GPIO is
 
    type gpio_num_t is new int;
@@ -48,6 +50,8 @@ package ESPIDF.Driver.GPIO is
       GPIO_INTR_ANYEDGE    => 3,
       GPIO_INTR_LOW_LEVEL  => 4,
       GPIO_INTR_HIGH_LEVEL => 5);
+
+   type gpio_isr_t is access procedure (Arg : System.Address) with Convention => C;
 
    type gpio_config_t is limited private;
 
@@ -104,6 +108,13 @@ package ESPIDF.Driver.GPIO is
    with Import, Convention => C, External_Name => "gpio_install_isr_service";
 
    procedure gpio_install_isr_service (intr_alloc_flags : int);
+
+   function gpio_isr_handler_add
+     (gpio_num : gpio_num_t; isr_handler : gpio_isr_t; args : System.Address) return esp_err_t
+   with Import, Convention => C, External_Name => "gpio_isr_handler_add";
+
+   procedure gpio_isr_handler_add
+     (gpio_num : gpio_num_t; isr_handler : gpio_isr_t; args : System.Address);
 
 private
 

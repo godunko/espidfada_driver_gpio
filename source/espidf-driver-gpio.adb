@@ -26,6 +26,18 @@ package body ESPIDF.Driver.GPIO is
       ESPIDF.Ada_ESP_Check_Error (gpio_install_isr_service (intr_alloc_flags));
    end gpio_install_isr_service;
 
+   --------------------------
+   -- gpio_isr_handler_add --
+   --------------------------
+
+   procedure gpio_isr_handler_add
+     (gpio_num : gpio_num_t; isr_handler : gpio_isr_t; args : System.Address)
+   is
+   begin
+      ESPIDF.Ada_ESP_Check_Error
+        (gpio_isr_handler_add (gpio_num, isr_handler, args));
+   end gpio_isr_handler_add;
+
    --------------------
    -- gpio_set_level --
    --------------------
