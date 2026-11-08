@@ -26,6 +26,15 @@ package body ESPIDF.Driver.GPIO is
       ESPIDF.Ada_ESP_Check_Error (gpio_install_isr_service (intr_alloc_flags));
    end gpio_install_isr_service;
 
+   -----------------------
+   -- gpio_intr_disable --
+   -----------------------
+
+   procedure gpio_intr_disable (gpio_num : gpio_num_t) is
+   begin
+      ESPIDF.Ada_ESP_Check_Error (gpio_intr_disable (gpio_num));
+   end gpio_intr_disable;
+
    ----------------------
    -- gpio_intr_enable --
    ----------------------
