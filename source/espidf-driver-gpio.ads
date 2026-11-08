@@ -90,20 +90,20 @@ package ESPIDF.Driver.GPIO is
    --------------
 
    function gpio_config (pGPIOConfig : in gpio_config_t) return esp_err_t
-   with
-     Import,
-     Convention    => C,
-     External_Name => "gpio_config";
+   with Import, Convention => C, External_Name => "gpio_config";
 
    procedure gpio_config (pGPIOConfig : in gpio_config_t);
 
-   function gpio_set_level (gpio_num : gpio_num_t; level : uint32_t) return esp_err_t
-   with
-     Import,
-     Convention    => C,
-     External_Name => "gpio_set_level";
+   function gpio_set_level
+     (gpio_num : gpio_num_t; level : uint32_t) return esp_err_t
+   with Import, Convention => C, External_Name => "gpio_set_level";
 
    procedure gpio_set_level (gpio_num : gpio_num_t; level : uint32_t);
+
+   function gpio_install_isr_service (intr_alloc_flags : int) return esp_err_t
+   with Import, Convention => C, External_Name => "gpio_install_isr_service";
+
+   procedure gpio_install_isr_service (intr_alloc_flags : int);
 
 private
 
