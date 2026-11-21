@@ -104,6 +104,9 @@ package ESPIDF.Driver.GPIO is
 
    procedure gpio_set_level (gpio_num : gpio_num_t; level : uint32_t);
 
+   function gpio_get_level (gpio_num : gpio_num_t) return int
+   with Import, Convention => C, External_Name => "gpio_get_level";
+
    function gpio_install_isr_service (intr_alloc_flags : int) return esp_err_t
    with Import, Convention => C, External_Name => "gpio_install_isr_service";
 
