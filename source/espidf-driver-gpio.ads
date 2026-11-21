@@ -107,6 +107,13 @@ package ESPIDF.Driver.GPIO is
    function gpio_get_level (gpio_num : gpio_num_t) return int
    with Import, Convention => C, External_Name => "gpio_get_level";
 
+   function gpio_set_intr_type
+     (gpio_num : gpio_num_t; intr_type : gpio_int_type_t) return esp_err_t
+   with Import, Convention => C, External_Name => "gpio_set_intr_type";
+
+   procedure gpio_set_intr_type
+     (gpio_num : gpio_num_t; intr_type : gpio_int_type_t);
+
    function gpio_install_isr_service (intr_alloc_flags : int) return esp_err_t
    with Import, Convention => C, External_Name => "gpio_install_isr_service";
 

@@ -56,6 +56,16 @@ package body ESPIDF.Driver.GPIO is
         (gpio_isr_handler_add (gpio_num, isr_handler, args));
    end gpio_isr_handler_add;
 
+   ------------------------
+   -- gpio_set_intr_type --
+   ------------------------
+
+   procedure gpio_set_intr_type
+     (gpio_num : gpio_num_t; intr_type : gpio_int_type_t) is
+   begin
+      ESPIDF.Ada_ESP_Check_Error (gpio_set_intr_type (gpio_num, intr_type));
+   end gpio_set_intr_type;
+
    --------------------
    -- gpio_set_level --
    --------------------
