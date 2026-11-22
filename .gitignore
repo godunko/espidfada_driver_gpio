@@ -1,4 +1,5 @@
 /.objs/
+/.gens/
 /.libs/
 /.vscode/
 /alire/

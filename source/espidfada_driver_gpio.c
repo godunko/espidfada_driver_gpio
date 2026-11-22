@@ -6,8 +6,6 @@
 
 #include <driver/gpio.h>
 
-const int __ada_SIZEOF_gpio_config_t = sizeof(gpio_config_t);
-
 void __ada_SET_gpio_config_t_intr_type(gpio_config_t *self, gpio_int_type_t intr_type)
 {
     self->intr_type = intr_type;

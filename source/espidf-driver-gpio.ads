@@ -6,6 +6,8 @@
 
 with System;
 
+private with ESPIDF.Constants.GPIO;
+
 package ESPIDF.Driver.GPIO is
 
    type gpio_num_t is new int;
@@ -138,12 +140,11 @@ package ESPIDF.Driver.GPIO is
 
 private
 
-   sizeof_gpio_config_t : constant int
-     with Import, Convention => C,
-          External_Name => "__ada_SIZEOF_gpio_config_t";
-
-   type gpio_config_t is new C_Object_Storage (1 .. sizeof_gpio_config_t)
-     with Convention              => C,
-          Default_Component_Value => 0;
+   type gpio_config_t is
+     new C_Object_Storage (1 .. ESPIDF.Constants.GPIO.sizeof_gpio_config_t)
+   with
+     Convention              => C,
+     Alignment               => ESPIDF.Constants.GPIO.alignof_gpio_config_t,
+     Default_Component_Value => 0;
 
 end ESPIDF.Driver.GPIO;
