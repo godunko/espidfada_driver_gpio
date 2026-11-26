@@ -1,5 +1,5 @@
 name = "espidfada_driver_gpio"
-version = "0.1.0-dev"
+version = "0.1.0"
 website = "https://github.com/godunko/espidfada_driver_gpio"
 description = "ESP-IDF/Ada: GPIO driver bindings"
 long-description = """
