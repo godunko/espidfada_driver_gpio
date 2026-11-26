@@ -1,9 +1,12 @@
 name = "espidfada_driver_gpio"
 version = "0.1.0-dev"
 website = "https://github.com/godunko/espidfada_driver_gpio"
-description = "ESP-IDF/Ada: GPIO bindings"
+description = "ESP-IDF/Ada: GPIO driver bindings"
 long-description = """
-Ada bindings for the ESP-IDF GPIO component (`esp_driver_gpio`).
+Ada bindings for the ESP-IDF general-purpose input/output (GPIO) driver
+(`esp_driver_gpio`).
+
+Provides pin configuration, digital input and output, and GPIO interrupt handling.
 """
 
 authors = ["Vadim Godunko"]
